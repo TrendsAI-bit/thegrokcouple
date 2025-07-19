@@ -101,7 +101,7 @@ export default function Home() {
           <div className="logo-container">
             <div className="logo-image">
               <img 
-                src="/asset/logo.png" 
+                src="/logo.png" 
                 alt="Grok Couple Logo" 
                 className="w-full h-full rounded-full object-cover"
                 onError={(e) => {

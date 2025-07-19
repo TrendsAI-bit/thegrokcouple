@@ -66,12 +66,29 @@
   }
   
   .cosmic-border {
-    border: 1px solid transparent;
-    background: linear-gradient(45deg, #ff0080, #00ffff, #ff0080) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
+    position: relative;
+    background: linear-gradient(45deg, #ff0080, #00ffff, #ff0080);
+    padding: 2px;
+  }
+  
+  .cosmic-border::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #000;
+    z-index: -1;
+  }
+  
+  /* For circular elements */
+  .cosmic-border.rounded-full,
+  .cosmic-border.rounded-full::before {
+    border-radius: 50%;
+  }
+  
+  /* For rectangular elements */
+  .cosmic-border.rounded-lg,
+  .cosmic-border.rounded-lg::before {
+    border-radius: 0.5rem;
   }
   
   .nebula-bg {
@@ -90,9 +107,18 @@
     height: 40px;
     border-radius: 50%;
     position: relative;
-    border: 2px solid transparent;
-    background: linear-gradient(45deg, #ff0080, #00ffff) border-box;
+    background: linear-gradient(45deg, #ff0080, #00ffff);
+    padding: 2px;
     overflow: hidden;
+  }
+  
+  .logo-image::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #000;
+    border-radius: 50%;
+    z-index: -1;
   }
 
   /* CTA Button styling */

@@ -61,7 +61,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               className="text-center"
             >
               <div className="relative">
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
+                <div className="cosmic-border rounded-full w-24 h-24 md:w-28 md:h-28 mx-auto mb-3">
                   {!aniImageError ? (
                     <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image 
@@ -102,7 +102,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               className="text-center"
             >
               <div className="relative">
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
+                <div className="cosmic-border rounded-full w-24 h-24 md:w-28 md:h-28 mx-auto mb-3">
                   {!valentineImageError ? (
                     <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image 

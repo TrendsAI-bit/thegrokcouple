@@ -107,7 +107,7 @@ export default function ProfileGallery({ profiles, connected, hasAVTokens, onCre
                 className="space-card group hover:scale-105 transition-all duration-300"
               >
                 {/* Profile Image Placeholder */}
-                <div className="w-full h-48 rounded-lg mb-6 cosmic-border p-1">
+                <div className="w-full h-48 rounded-lg cosmic-border">
                   <div className="w-full h-full rounded-lg bg-gradient-to-br from-neon-pink/20 via-purple-500/10 to-neon-blue/20 flex items-center justify-center">
                     <div className="text-center">
                       <div className="text-4xl font-bold gradient-text mb-2">

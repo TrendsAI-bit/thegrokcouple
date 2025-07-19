@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Heart, Sparkles, Star, User } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 interface HeroSectionProps {
   connected: boolean
@@ -62,16 +63,20 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <div className="relative">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!aniImageError ? (
-                    <img 
-                      src="/ani.png" 
-                      alt="ANI" 
-                      className="w-full h-full rounded-full object-cover"
-                      onError={(e) => {
-                        console.log('ANI image failed to load:', e)
-                        setAniImageError(true)
-                      }}
-                      onLoad={() => console.log('ANI image loaded successfully')}
-                    />
+                    <div className="relative w-full h-full">
+                      <Image 
+                        src="/ani.png" 
+                        alt="ANI" 
+                        fill
+                        className="rounded-full object-cover"
+                        onError={() => {
+                          console.log('ANI image failed to load')
+                          setAniImageError(true)
+                        }}
+                        onLoad={() => console.log('ANI image loaded successfully')}
+                        unoptimized
+                      />
+                    </div>
                   ) : (
                     aniFallback
                   )}
@@ -99,16 +104,20 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <div className="relative">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!valentineImageError ? (
-                    <img 
-                      src="/valentine.png" 
-                      alt="Valentine" 
-                      className="w-full h-full rounded-full object-cover"
-                      onError={(e) => {
-                        console.log('Valentine image failed to load:', e)
-                        setValentineImageError(true)
-                      }}
-                      onLoad={() => console.log('Valentine image loaded successfully')}
-                    />
+                    <div className="relative w-full h-full">
+                      <Image 
+                        src="/valentine.png" 
+                        alt="Valentine" 
+                        fill
+                        className="rounded-full object-cover"
+                        onError={() => {
+                          console.log('Valentine image failed to load')
+                          setValentineImageError(true)
+                        }}
+                        onLoad={() => console.log('Valentine image loaded successfully')}
+                        unoptimized
+                      />
+                    </div>
                   ) : (
                     valentineFallback
                   )}

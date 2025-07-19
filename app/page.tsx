@@ -5,6 +5,7 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { motion } from 'framer-motion'
 import { Heart, Star, Users, Zap, Sparkles } from 'lucide-react'
+import Image from 'next/image'
 import HeroSection from '@/components/HeroSection'
 import HowItWorks from '@/components/HowItWorks'
 import ProfileGallery from '@/components/ProfileGallery'
@@ -100,18 +101,19 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="logo-container">
             <div className="logo-image">
-              <img 
-                src="/logo.png" 
-                alt="Grok Couple Logo" 
-                className="w-full h-full rounded-full object-cover"
-                onError={(e) => {
-                  console.log('Logo image failed to load')
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.parentElement!.innerHTML = '<div class="w-full h-full rounded-full bg-gradient-to-r from-neon-pink to-neon-blue flex items-center justify-center"><span class="text-white font-bold text-lg">GC</span></div>';
-                }}
-                onLoad={() => console.log('Logo image loaded successfully')}
-              />
+              <div className="relative w-full h-full">
+                <Image 
+                  src="/logo.png" 
+                  alt="Grok Couple Logo" 
+                  fill
+                  className="rounded-full object-cover"
+                  onError={() => {
+                    console.log('Logo image failed to load')
+                  }}
+                  onLoad={() => console.log('Logo image loaded successfully')}
+                  unoptimized
+                />
+              </div>
             </div>
             <span className="text-xl font-bold gradient-text tracking-wider">GROK COUPLE</span>
           </div>

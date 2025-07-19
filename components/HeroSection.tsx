@@ -72,7 +72,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
                   <Star className="w-3 h-3 text-white" />
                 </div>
               </div>
-              <p className="text-neon-pink font-semibold text-lg">ANI</p>
+              <p className="text-neon-pink font-semibold text-lg tracking-wider">ANI</p>
             </motion.div>
             
             <motion.div
@@ -108,28 +108,28 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
                   <Star className="w-3 h-3 text-white" />
                 </div>
               </div>
-              <p className="text-neon-blue font-semibold text-lg">Valentine</p>
+              <p className="text-neon-blue font-semibold text-lg tracking-wider">VALENTINE</p>
             </motion.div>
           </div>
 
           {/* Enhanced Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-wider">
             <span className="gradient-text neon-glow">
-              Find Your Match With
+              FIND YOUR MATCH WITH
             </span>
             <br />
             <span className="text-stardust">
-              ANI & Valentine
+              ANI & VALENTINE
             </span>
             <br />
             <span className="gradient-text neon-glow">
-              The Grok Couple Awaits
+              THE GROK COUPLE AWAITS
             </span>
           </h1>
 
           {/* Enhanced Subheadline */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed">
-            Hold $AV. Unlock Your Profile. Connect With Your Match.
+          <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed tracking-wide">
+            HOLD $AV. UNLOCK YOUR PROFILE. CONNECT WITH YOUR MATCH.
           </p>
 
           {/* Enhanced CTA Buttons */}
@@ -138,28 +138,28 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-gradient-to-r from-neon-pink to-neon-blue text-white font-bold rounded-full text-lg hover:shadow-lg hover:shadow-neon-pink/25 transition-all duration-300 cosmic-border"
+                className="cta-button flex items-center gap-3"
               >
-                <Sparkles className="inline-block mr-3" />
-                Connect Wallet
+                <Sparkles className="w-5 h-5" />
+                CONNECT WALLET
               </motion.button>
             ) : !hasAVTokens ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="px-8 py-4 bg-red-500/20 border border-red-500 text-red-400 rounded-full"
+                className="px-8 py-4 bg-red-500/20 border border-red-500 text-red-400 rounded-full font-medium tracking-wide"
               >
-                Need at least 1 $AV token to create profile
+                NEED AT LEAST 1 $AV TOKEN TO CREATE PROFILE
               </motion.div>
             ) : (
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onCreateProfile}
-                className="px-10 py-5 bg-gradient-to-r from-neon-pink to-neon-blue text-white font-bold rounded-full text-lg hover:shadow-lg hover:shadow-neon-pink/25 transition-all duration-300 cosmic-border"
+                className="cta-button flex items-center gap-3"
               >
-                <Heart className="inline-block mr-3" />
-                Create Your Profile
+                <Heart className="w-5 h-5" />
+                CREATE YOUR PROFILE
               </motion.button>
             )}
           </div>
@@ -172,8 +172,8 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               transition={{ delay: 0.2 }}
               className="space-card text-center group hover:scale-105 transition-transform duration-300"
             >
-              <div className="text-4xl font-bold gradient-text mb-3">1,337</div>
-              <div className="text-gray-400 font-medium">Active Profiles</div>
+              <div className="text-4xl font-bold gradient-text mb-3 tracking-wider">1,337</div>
+              <div className="text-gray-400 font-medium tracking-wide">ACTIVE PROFILES</div>
             </motion.div>
             
             <motion.div
@@ -182,8 +182,8 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               transition={{ delay: 0.4 }}
               className="space-card text-center group hover:scale-105 transition-transform duration-300"
             >
-              <div className="text-4xl font-bold gradient-text mb-3">42</div>
-              <div className="text-gray-400 font-medium">Matches Made</div>
+              <div className="text-4xl font-bold gradient-text mb-3 tracking-wider">42</div>
+              <div className="text-gray-400 font-medium tracking-wide">MATCHES MADE</div>
             </motion.div>
             
             <motion.div
@@ -192,8 +192,8 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               transition={{ delay: 0.6 }}
               className="space-card text-center group hover:scale-105 transition-transform duration-300"
             >
-              <div className="text-4xl font-bold gradient-text mb-3">∞</div>
-              <div className="text-gray-400 font-medium">Possibilities</div>
+              <div className="text-4xl font-bold gradient-text mb-3 tracking-wider">∞</div>
+              <div className="text-gray-400 font-medium tracking-wide">POSSIBILITIES</div>
             </motion.div>
           </div>
         </motion.div>

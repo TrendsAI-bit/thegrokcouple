@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --font-orbitron: 'Orbitron', sans-serif;
+  }
+  
   body {
     @apply bg-space-black text-stardust;
+    font-family: var(--font-orbitron), 'Orbitron', sans-serif;
     background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 70%, #000000 100%);
     background-image: 
       radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
@@ -14,6 +19,10 @@
       radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
     background-repeat: repeat;
     background-size: 200px 100px;
+  }
+
+  * {
+    font-family: inherit;
   }
 }
 
@@ -82,6 +91,48 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  /* Logo styling */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, #ff0080, #00ffff) border-box;
+  }
+
+  /* CTA Button styling */
+  .cta-button {
+    background: linear-gradient(135deg, #ff0080 0%, #00ffff 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 16px 32px;
+    font-family: var(--font-orbitron), 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(255, 0, 128, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(255, 0, 128, 0.4);
+  }
+
+  .cta-button:active {
+    transform: translateY(0);
   }
 }
 

@@ -97,11 +97,24 @@ export default function Home() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 glass-effect">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <img src="/asset/logo.png" alt="Grok Couple Logo" className="h-10 w-10" />
-            <span className="text-xl font-bold gradient-text">Grok Couple</span>
+          <div className="logo-container">
+            <div className="logo-image">
+              <img 
+                src="/asset/logo.png" 
+                alt="Grok Couple Logo" 
+                className="w-full h-full rounded-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.innerHTML = '<div class="w-full h-full rounded-full bg-gradient-to-r from-neon-pink to-neon-blue flex items-center justify-center"><span class="text-white font-bold text-lg">GC</span></div>';
+                }}
+              />
+            </div>
+            <span className="text-xl font-bold gradient-text tracking-wider">GROK COUPLE</span>
           </div>
-          <WalletMultiButton className="!bg-neon-pink !text-white hover:!bg-neon-pink/80" />
+          <div className="wallet-adapter-dropdown">
+            <WalletMultiButton className="cta-button" />
+          </div>
         </div>
       </header>
 

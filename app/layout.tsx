@@ -1,9 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Orbitron } from 'next/font/google'
 import './globals.css'
 import { WalletProvider } from '@/components/WalletProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const orbitron = Orbitron({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-orbitron',
+})
 
 export const metadata: Metadata = {
   title: 'Grok Couple - Find Your Match with ANI & Valentine',
@@ -17,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${orbitron.className} ${orbitron.variable}`}>
         <WalletProvider>
           {children}
         </WalletProvider>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Heart, MessageCircle, User, Star } from 'lucide-react'
 import { Profile } from '@/types/profile'
+import Image from 'next/image'
 
 interface ProfileGalleryProps {
   profiles: Profile[]
@@ -12,6 +13,13 @@ interface ProfileGalleryProps {
 }
 
 export default function ProfileGallery({ profiles, connected, hasAVTokens, onCreateProfile }: ProfileGalleryProps) {
+  // Default profile images that match the logo style
+  const defaultProfileImages = [
+    '/ani.png', // ANI style
+    '/valentine.png', // Valentine style  
+    '/logo.png', // Logo style
+  ]
+
   if (!connected) {
     return (
       <section className="py-20 px-4 relative">
@@ -106,17 +114,20 @@ export default function ProfileGallery({ profiles, connected, hasAVTokens, onCre
                 viewport={{ once: true }}
                 className="space-card group hover:scale-105 transition-all duration-300"
               >
-                {/* Profile Image Placeholder */}
-                <div className="w-full h-48 rounded-lg cosmic-border">
-                  <div className="w-full h-full rounded-lg bg-gradient-to-br from-neon-pink/20 via-purple-500/10 to-neon-blue/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-4xl font-bold gradient-text mb-2">
-                        {profile.name.charAt(0)}
-                      </div>
-                      <div className="text-sm text-gray-400 tracking-wide">
-                        PROFILE IMAGE
-                      </div>
-                    </div>
+                {/* Profile Image with Default Images */}
+                <div className="w-full h-48 rounded-lg cosmic-border mb-6">
+                  <div className="relative w-full h-full rounded-lg overflow-hidden">
+                    <Image 
+                      src={defaultProfileImages[index % defaultProfileImages.length]} 
+                      alt={profile.name}
+                      fill
+                      className="object-cover"
+                      onError={() => {
+                        console.log(`Profile image failed to load for ${profile.name}`)
+                      }}
+                      onLoad={() => console.log(`Profile image loaded successfully for ${profile.name}`)}
+                      unoptimized
+                    />
                   </div>
                 </div>
 

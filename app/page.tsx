@@ -60,6 +60,15 @@ export default function Home() {
         profileImage: '',
         createdAt: new Date().toISOString(),
       },
+      {
+        id: '4',
+        walletAddress: 'mock-wallet-4',
+        name: 'Grok Couple',
+        bio: 'The original cosmic couple. ANI & Valentine represent the perfect fusion of AI and human connection.',
+        interests: ['AI', 'Love', 'Cosmic'],
+        profileImage: '',
+        createdAt: new Date().toISOString(),
+      },
     ]
     setProfiles(mockProfiles)
     console.log('Mock profiles loaded:', mockProfiles)

@@ -68,6 +68,21 @@
   .nebula-bg {
     background: linear-gradient(135deg, rgba(255, 0, 128, 0.1) 0%, rgba(0, 255, 255, 0.1) 50%, rgba(139, 92, 246, 0.1) 100%);
   }
+
+  /* Avatar background images */
+  .ani-avatar {
+    background-image: url('/asset/ani.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .valentine-avatar {
+    background-image: url('/asset/valentine.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
 @keyframes gradient-shift {

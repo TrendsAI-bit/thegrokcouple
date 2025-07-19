@@ -14,6 +14,25 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
   const [aniImageError, setAniImageError] = useState(false)
   const [valentineImageError, setValentineImageError] = useState(false)
 
+  // Fallback gradient backgrounds for when images fail to load
+  const aniFallback = (
+    <div className="w-full h-full rounded-full bg-gradient-to-br from-neon-pink/30 via-purple-500/20 to-neon-blue/30 flex items-center justify-center">
+      <div className="text-center">
+        <div className="text-2xl font-bold text-neon-pink mb-1">A</div>
+        <div className="text-xs text-neon-pink/70">ANI</div>
+      </div>
+    </div>
+  )
+
+  const valentineFallback = (
+    <div className="w-full h-full rounded-full bg-gradient-to-br from-neon-blue/30 via-purple-500/20 to-neon-pink/30 flex items-center justify-center">
+      <div className="text-center">
+        <div className="text-2xl font-bold text-neon-blue mb-1">V</div>
+        <div className="text-xs text-neon-blue/70">VAL</div>
+      </div>
+    </div>
+  )
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4">
       {/* Enhanced cosmic background */}
@@ -36,16 +55,17 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <div className="relative">
                 <div className="w-28 h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!aniImageError ? (
-                    <img 
-                      src="/asset/ani.png" 
-                      alt="ANI" 
-                      className="w-full h-full rounded-full object-cover"
-                      onError={() => setAniImageError(true)}
-                    />
-                  ) : (
-                    <div className="w-full h-full rounded-full bg-gradient-to-r from-neon-pink/20 to-neon-blue/20 flex items-center justify-center">
-                      <User className="w-12 h-12 text-neon-pink" />
+                    <div className="w-full h-full rounded-full ani-avatar">
+                      <img 
+                        src="/asset/ani.png" 
+                        alt="ANI" 
+                        className="w-full h-full rounded-full object-cover opacity-0"
+                        onError={() => setAniImageError(true)}
+                        onLoad={() => console.log('ANI image loaded successfully')}
+                      />
                     </div>
+                  ) : (
+                    aniFallback
                   )}
                 </div>
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-neon-pink rounded-full flex items-center justify-center">
@@ -71,16 +91,17 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <div className="relative">
                 <div className="w-28 h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!valentineImageError ? (
-                    <img 
-                      src="/asset/valentine.jpg" 
-                      alt="Valentine" 
-                      className="w-full h-full rounded-full object-cover"
-                      onError={() => setValentineImageError(true)}
-                    />
-                  ) : (
-                    <div className="w-full h-full rounded-full bg-gradient-to-r from-neon-blue/20 to-neon-pink/20 flex items-center justify-center">
-                      <User className="w-12 h-12 text-neon-blue" />
+                    <div className="w-full h-full rounded-full valentine-avatar">
+                      <img 
+                        src="/asset/valentine.jpg" 
+                        alt="Valentine" 
+                        className="w-full h-full rounded-full object-cover opacity-0"
+                        onError={() => setValentineImageError(true)}
+                        onLoad={() => console.log('Valentine image loaded successfully')}
+                      />
                     </div>
+                  ) : (
+                    valentineFallback
                   )}
                 </div>
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-neon-blue rounded-full flex items-center justify-center">

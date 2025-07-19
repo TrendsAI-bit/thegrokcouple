@@ -1,55 +1,55 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Wallet, User, Users, Zap } from 'lucide-react'
+import { Wallet, Heart, Users, Star } from 'lucide-react'
 
 export default function HowItWorks() {
   const steps = [
     {
       icon: Wallet,
-      title: 'Hold $AV token',
-      description: 'Ensure you have at least 1 $AV token in your wallet to access the platform.',
-      color: 'text-neon-pink'
+      title: 'CONNECT WALLET',
+      description: 'CONNECT YOUR SOLANA WALLET TO ACCESS THE PLATFORM',
+      color: 'neon-pink'
     },
     {
-      icon: User,
-      title: 'Connect wallet & verify',
-      description: 'Connect your Solana wallet and verify your $AV token holdings.',
-      color: 'text-neon-blue'
+      icon: Star,
+      title: 'HOLD $AV TOKENS',
+      description: 'ENSURE YOU HOLD AT LEAST 1 $AV TOKEN TO VERIFY YOUR STATUS',
+      color: 'neon-blue'
     },
     {
-      icon: User,
-      title: 'Create your profile',
-      description: 'Set up your dating profile with name, bio, interests, and profile image.',
-      color: 'text-cosmic-purple'
+      icon: Heart,
+      title: 'CREATE PROFILE',
+      description: 'BUILD YOUR COSMIC PROFILE AND SHARE YOUR PASSIONS',
+      color: 'neon-pink'
     },
     {
       icon: Users,
-      title: 'Browse other holders & say hello',
-      description: 'Discover other verified $AV holders and start meaningful connections.',
-      color: 'text-neon-pink'
+      title: 'FIND MATCHES',
+      description: 'DISCOVER OTHER VERIFIED $AV HOLDERS AND CONNECT',
+      color: 'neon-blue'
     }
   ]
 
   return (
-    <section className="py-24 px-4 relative">
+    <section className="py-20 px-4 relative">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            <span className="gradient-text">How It Works</span>
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6 tracking-wider">
+            HOW IT WORKS
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Join the future of dating powered by blockchain technology and the Grok Couple
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto tracking-wide">
+            FOUR SIMPLE STEPS TO JOIN THE COSMIC COUPLE COMMUNITY
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -59,34 +59,68 @@ export default function HowItWorks() {
               viewport={{ once: true }}
               className="space-card text-center group hover:scale-105 transition-all duration-300"
             >
-              <div className="relative mb-8">
-                <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-neon-pink to-neon-blue flex items-center justify-center group-hover:scale-110 transition-transform duration-300 cosmic-border p-1`}>
-                  <div className="w-full h-full rounded-full bg-galaxy-gray flex items-center justify-center">
-                    <step.icon className={`w-10 h-10 text-white`} />
-                  </div>
-                </div>
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-neon-pink rounded-full flex items-center justify-center text-sm font-bold cosmic-border">
-                  {index + 1}
+              <div className={`w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-${step.color} to-${step.color === 'neon-pink' ? 'neon-blue' : 'neon-pink'} p-1 cosmic-border`}>
+                <div className="w-full h-full rounded-full bg-space-black flex items-center justify-center">
+                  <step.icon className={`w-8 h-8 text-${step.color}`} />
                 </div>
               </div>
               
-              <h3 className={`text-2xl font-bold mb-4 ${step.color}`}>
+              <div className="mb-4">
+                <span className="text-2xl font-bold gradient-text tracking-wider">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+              
+              <h3 className={`text-xl font-bold text-${step.color} mb-4 tracking-wider`}>
                 {step.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed text-sm">
+              
+              <p className="text-gray-300 leading-relaxed tracking-wide">
                 {step.description}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Enhanced Connection Lines */}
-        <div className="hidden lg:block relative mt-20">
-          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-neon-pink via-neon-blue to-neon-pink opacity-30" />
-          <div className="absolute top-1/2 left-1/4 w-0.5 h-12 bg-neon-pink opacity-50 transform -translate-y-6" />
-          <div className="absolute top-1/2 left-1/2 w-0.5 h-12 bg-neon-blue opacity-50 transform -translate-y-6" />
-          <div className="absolute top-1/2 left-3/4 w-0.5 h-12 bg-cosmic-purple opacity-50 transform -translate-y-6" />
+        {/* Connection Lines for Desktop */}
+        <div className="hidden lg:block relative mt-16">
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-neon-pink via-neon-blue to-neon-pink opacity-30"></div>
+          {steps.map((_, index) => (
+            <div
+              key={index}
+              className="absolute top-1/2 w-4 h-4 bg-space-black border-2 border-neon-pink rounded-full transform -translate-y-1/2"
+              style={{ left: `${(index + 1) * 25 - 12.5}%` }}
+            ></div>
+          ))}
         </div>
+
+        {/* Enhanced CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mt-20"
+        >
+          <div className="space-card max-w-3xl mx-auto nebula-bg">
+            <h3 className="text-3xl font-bold gradient-text mb-6 tracking-wider">
+              READY TO START YOUR COSMIC JOURNEY?
+            </h3>
+            <p className="text-gray-300 mb-8 text-lg tracking-wide leading-relaxed">
+              JOIN THE GROK COUPLE COMMUNITY AND DISCOVER CONNECTIONS BEYOND THE STARS
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex items-center gap-3 px-6 py-3 bg-neon-pink/10 border border-neon-pink/30 rounded-full">
+                <Star className="w-5 h-5 text-neon-pink" />
+                <span className="text-neon-pink font-semibold tracking-wide">VERIFIED COMMUNITY</span>
+              </div>
+              <div className="flex items-center gap-3 px-6 py-3 bg-neon-blue/10 border border-neon-blue/30 rounded-full">
+                <Heart className="w-5 h-5 text-neon-blue" />
+                <span className="text-neon-blue font-semibold tracking-wide">REAL CONNECTIONS</span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

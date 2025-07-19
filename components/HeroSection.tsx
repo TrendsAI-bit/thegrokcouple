@@ -34,7 +34,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
   )
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4">
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
       {/* Enhanced cosmic background */}
       <div className="absolute inset-0 nebula-bg" />
       <div className="absolute inset-0 bg-gradient-to-br from-neon-pink/5 via-transparent to-neon-blue/5" />
@@ -46,14 +46,14 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
           transition={{ duration: 0.8 }}
         >
           {/* ANI & Valentine Avatars with enhanced styling */}
-          <div className="flex justify-center items-center space-x-12 mb-12">
+          <div className="flex justify-center items-center space-x-8 md:space-x-12 mb-12">
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
               className="text-center"
             >
               <div className="relative">
-                <div className="w-28 h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!aniImageError ? (
                     <div className="w-full h-full rounded-full ani-avatar">
                       <img 
@@ -78,7 +78,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
             <motion.div
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="text-5xl text-neon-pink"
+              className="text-4xl md:text-5xl text-neon-pink"
             >
               <Heart className="inline-block" />
             </motion.div>
@@ -89,7 +89,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               className="text-center"
             >
               <div className="relative">
-                <div className="w-28 h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!valentineImageError ? (
                     <div className="w-full h-full rounded-full valentine-avatar">
                       <img 
@@ -112,28 +112,28 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
             </motion.div>
           </div>
 
-          {/* Enhanced Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-wider">
-            <span className="gradient-text neon-glow">
+          {/* Enhanced Main Headline with proper line breaks */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-wider max-w-6xl mx-auto">
+            <div className="gradient-text neon-glow mb-2">
               FIND YOUR MATCH WITH
-            </span>
-            <br />
-            <span className="text-stardust">
+            </div>
+            <div className="text-stardust mb-2">
               ANI & VALENTINE
-            </span>
-            <br />
-            <span className="gradient-text neon-glow">
+            </div>
+            <div className="gradient-text neon-glow">
               THE GROK COUPLE AWAITS
-            </span>
+            </div>
           </h1>
 
-          {/* Enhanced Subheadline */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed tracking-wide">
-            HOLD $AV. UNLOCK YOUR PROFILE. CONNECT WITH YOUR MATCH.
+          {/* Enhanced Subheadline with proper line breaks */}
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed tracking-wide">
+            HOLD $AV. UNLOCK YOUR PROFILE.
+            <br />
+            CONNECT WITH YOUR MATCH.
           </p>
 
           {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             {!connected ? (
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -165,7 +165,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
           </div>
 
           {/* Enhanced Stats */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

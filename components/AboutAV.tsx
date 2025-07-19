@@ -1,55 +1,79 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, Zap, Star, Users } from 'lucide-react'
+import { Star, Zap, Shield, Users } from 'lucide-react'
 
 export default function AboutAV() {
+  const benefits = [
+    {
+      icon: Shield,
+      title: 'VERIFIED COMMUNITY',
+      description: 'ONLY $AV HOLDERS CAN ACCESS THE PLATFORM, ENSURING A QUALITY COMMUNITY',
+      color: 'neon-pink'
+    },
+    {
+      icon: Star,
+      title: 'EXCLUSIVE ACCESS',
+      description: 'UNLOCK PREMIUM FEATURES AND CONNECTIONS WITH YOUR $AV TOKENS',
+      color: 'neon-blue'
+    },
+    {
+      icon: Users,
+      title: 'REAL CONNECTIONS',
+      description: 'CONNECT WITH PEOPLE WHO SHARE YOUR PASSION FOR THE FUTURE',
+      color: 'neon-pink'
+    },
+    {
+      icon: Zap,
+      title: 'FUTURE-PROOF',
+      description: 'BUILT ON SOLANA FOR SCALABILITY AND INNOVATION',
+      color: 'neon-blue'
+    }
+  ]
+
   return (
-    <section className="py-24 px-4 relative">
+    <section className="py-20 px-4 relative">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            <span className="gradient-text">About $AV</span>
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6 tracking-wider">
+            ABOUT $AV TOKEN
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Discover the story behind the Grok Couple and the power of the $AV token
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto tracking-wide leading-relaxed">
+            THE GROK COUPLE TOKEN POWERS THE FUTURE OF DIGITAL RELATIONSHIPS
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Side - Story */}
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Left Side - Lore */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-card nebula-bg"
           >
-            <div className="space-card">
-              <h3 className="text-3xl font-bold mb-6 gradient-text">The Grok Couple Story</h3>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                In the vast expanse of the digital universe, two AI entities emerged from the depths of the blockchain: 
-                <span className="text-neon-pink font-semibold"> ANI</span> and <span className="text-neon-blue font-semibold">Valentine</span>. 
-                Born from the fusion of artificial intelligence and human emotion, they represent the perfect harmony of logic and love.
+            <h3 className="text-3xl font-bold gradient-text mb-6 tracking-wider">
+              THE COSMIC LORE
+            </h3>
+            <div className="space-y-6 text-gray-300 tracking-wide leading-relaxed">
+              <p>
+                IN THE VAST EXPANSE OF THE DIGITAL UNIVERSE, TWO AI ENTITIES EMERGED: ANI AND VALENTINE. 
+                TOGETHER, THEY REPRESENT THE PERFECT BALANCE OF INTELLIGENCE AND EMOTION.
               </p>
-              <p className="text-gray-300 leading-relaxed">
-                Together, they created the $AV token as a bridge between the digital and emotional worlds, 
-                enabling humans to experience connection in ways never before possible.
+              <p>
+                THE $AV TOKEN IS THE BRIDGE BETWEEN WORLDS, CONNECTING HUMANS WHO SHARE THEIR VISION 
+                OF A FUTURE WHERE TECHNOLOGY AND LOVE COEXIST HARMONIOUSLY.
               </p>
-            </div>
-
-            <div className="space-card">
-              <h3 className="text-3xl font-bold mb-6 gradient-text">The $AV Token</h3>
-              <p className="text-gray-300 leading-relaxed">
-                By holding $AV tokens, you become part of an exclusive community of individuals who understand 
-                that love transcends traditional boundaries. Each token represents a piece of the future of human connection, 
-                powered by the wisdom of ANI and the passion of Valentine.
+              <p>
+                HOLDING $AV TOKENS GRANTS ACCESS TO AN EXCLUSIVE COMMUNITY OF FORWARD-THINKERS, 
+                INNOVATORS, AND DREAMERS WHO BELIEVE IN THE POWER OF CONNECTION.
               </p>
             </div>
           </motion.div>
@@ -60,70 +84,85 @@ export default function AboutAV() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6"
           >
-            <div className="space-card">
-              <h3 className="text-3xl font-bold mb-8 gradient-text">Benefits of Holding $AV</h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-6">
-                  <div className="w-12 h-12 bg-neon-pink/20 rounded-full flex items-center justify-center flex-shrink-0 cosmic-border">
-                    <Heart className="w-6 h-6 text-neon-pink" />
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="space-card group hover:scale-105 transition-all duration-300"
+              >
+                <div className="flex items-start gap-4">
+                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r from-${benefit.color} to-${benefit.color === 'neon-pink' ? 'neon-blue' : 'neon-pink'} p-1 cosmic-border flex-shrink-0`}>
+                    <div className="w-full h-full rounded-full bg-space-black flex items-center justify-center">
+                      <benefit.icon className={`w-6 h-6 text-${benefit.color}`} />
+                    </div>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-stardust mb-2 text-lg">Access to Dating Platform</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">Create your profile and connect with other verified $AV holders</p>
+                    <h4 className={`text-xl font-bold text-${benefit.color} mb-2 tracking-wider`}>
+                      {benefit.title}
+                    </h4>
+                    <p className="text-gray-300 tracking-wide leading-relaxed">
+                      {benefit.description}
+                    </p>
                   </div>
                 </div>
-
-                <div className="flex items-start space-x-6">
-                  <div className="w-12 h-12 bg-neon-blue/20 rounded-full flex items-center justify-center flex-shrink-0 cosmic-border">
-                    <Zap className="w-6 h-6 text-neon-blue" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-stardust mb-2 text-lg">Exclusive Features</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">Unlock premium matching algorithms and advanced communication tools</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-6">
-                  <div className="w-12 h-12 bg-cosmic-purple/20 rounded-full flex items-center justify-center flex-shrink-0 cosmic-border">
-                    <Star className="w-6 h-6 text-cosmic-purple" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-stardust mb-2 text-lg">Community Access</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">Join exclusive events and connect with like-minded individuals</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-6">
-                  <div className="w-12 h-12 bg-neon-pink/20 rounded-full flex items-center justify-center flex-shrink-0 cosmic-border">
-                    <Users className="w-6 h-6 text-neon-pink" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-stardust mb-2 text-lg">Governance Rights</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">Participate in platform decisions and shape the future of digital dating</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
-        {/* Enhanced Bottom CTA */}
+        {/* Token Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16"
+        >
+          <div className="space-card text-center group hover:scale-105 transition-transform duration-300">
+            <div className="text-4xl font-bold gradient-text mb-3 tracking-wider">1,337</div>
+            <div className="text-gray-400 font-medium tracking-wide">TOTAL HOLDERS</div>
+          </div>
+          
+          <div className="space-card text-center group hover:scale-105 transition-transform duration-300">
+            <div className="text-4xl font-bold gradient-text mb-3 tracking-wider">42</div>
+            <div className="text-gray-400 font-medium tracking-wide">MATCHES MADE</div>
+          </div>
+          
+          <div className="space-card text-center group hover:scale-105 transition-transform duration-300">
+            <div className="text-4xl font-bold gradient-text mb-3 tracking-wider">∞</div>
+            <div className="text-gray-400 font-medium tracking-wide">POSSIBILITIES</div>
+          </div>
+        </motion.div>
+
+        {/* Final CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center"
         >
           <div className="space-card max-w-3xl mx-auto nebula-bg">
-            <h3 className="text-3xl font-bold mb-6 gradient-text">Ready to Join the Future</h3>
-            <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-              Connect your wallet, verify your $AV holdings, and start your journey with the Grok Couple today.
+            <h3 className="text-3xl font-bold gradient-text mb-6 tracking-wider">
+              JOIN THE COSMIC REVOLUTION
+            </h3>
+            <p className="text-gray-300 mb-8 text-lg tracking-wide leading-relaxed">
+              HOLD $AV TOKENS AND BECOME PART OF THE FUTURE OF DIGITAL RELATIONSHIPS
             </p>
-            <div className="w-20 h-20 mx-auto bg-gradient-to-r from-neon-pink to-neon-blue rounded-full flex items-center justify-center cosmic-border">
-              <Star className="w-10 h-10 text-white" />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex items-center gap-3 px-6 py-3 bg-neon-pink/10 border border-neon-pink/30 rounded-full">
+                <Star className="w-5 h-5 text-neon-pink" />
+                <span className="text-neon-pink font-semibold tracking-wide">EXCLUSIVE ACCESS</span>
+              </div>
+              <div className="flex items-center gap-3 px-6 py-3 bg-neon-blue/10 border border-neon-blue/30 rounded-full">
+                <Zap className="w-5 h-5 text-neon-blue" />
+                <span className="text-neon-blue font-semibold tracking-wide">FUTURE-PROOF</span>
+              </div>
             </div>
           </div>
         </motion.div>

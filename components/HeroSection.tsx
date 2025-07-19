@@ -63,7 +63,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <div className="relative">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!aniImageError ? (
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image 
                         src="/ani.png" 
                         alt="ANI" 
@@ -104,7 +104,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <div className="relative">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!valentineImageError ? (
-                    <div className="relative w-full h-full">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image 
                         src="/valentine.png" 
                         alt="Valentine" 

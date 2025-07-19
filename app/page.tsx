@@ -101,7 +101,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="logo-container">
             <div className="logo-image">
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-full rounded-full overflow-hidden">
                 <Image 
                   src="/logo.png" 
                   alt="Grok Couple Logo" 

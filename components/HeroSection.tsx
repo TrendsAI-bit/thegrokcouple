@@ -17,8 +17,8 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
   // Debug image loading
   useEffect(() => {
     console.log('HeroSection mounted, checking images...')
-    console.log('ANI image path:', 'https://via.placeholder.com/200x200/ff0080/ffffff?text=ANI')
-    console.log('Valentine image path:', 'https://via.placeholder.com/200x200/00ffff/ffffff?text=VAL')
+    console.log('ANI image path:', '/ani.png')
+    console.log('Valentine image path:', '/valentine.jpg')
   }, [])
 
   // Fallback gradient backgrounds for when images fail to load
@@ -63,7 +63,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!aniImageError ? (
                     <img 
-                      src="https://via.placeholder.com/200x200/ff0080/ffffff?text=ANI" 
+                      src="/ani.png" 
                       alt="ANI" 
                       className="w-full h-full rounded-full object-cover"
                       onError={(e) => {
@@ -100,7 +100,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!valentineImageError ? (
                     <img 
-                      src="https://via.placeholder.com/200x200/00ffff/ffffff?text=VAL" 
+                      src="/valentine.jpg" 
                       alt="Valentine" 
                       className="w-full h-full rounded-full object-cover"
                       onError={(e) => {

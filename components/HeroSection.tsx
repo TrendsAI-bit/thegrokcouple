@@ -18,7 +18,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
   useEffect(() => {
     console.log('HeroSection mounted, checking images...')
     console.log('ANI image path:', '/ani.png')
-    console.log('Valentine image path:', '/valentine.jpg')
+    console.log('Valentine image path:', '/valentine.png')
   }, [])
 
   // Fallback gradient backgrounds for when images fail to load
@@ -100,7 +100,7 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!valentineImageError ? (
                     <img 
-                      src="/valentine.jpg" 
+                      src="/valentine.png" 
                       alt="Valentine" 
                       className="w-full h-full rounded-full object-cover"
                       onError={(e) => {

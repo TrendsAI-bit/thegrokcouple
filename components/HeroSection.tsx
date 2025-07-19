@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Heart, Sparkles, Star, User } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface HeroSectionProps {
   connected: boolean
@@ -13,6 +13,13 @@ interface HeroSectionProps {
 export default function HeroSection({ connected, hasAVTokens, onCreateProfile }: HeroSectionProps) {
   const [aniImageError, setAniImageError] = useState(false)
   const [valentineImageError, setValentineImageError] = useState(false)
+
+  // Debug image loading
+  useEffect(() => {
+    console.log('HeroSection mounted, checking images...')
+    console.log('ANI image path:', '/asset/ani.png')
+    console.log('Valentine image path:', '/asset/valentine.jpg')
+  }, [])
 
   // Fallback gradient backgrounds for when images fail to load
   const aniFallback = (
@@ -55,15 +62,16 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <div className="relative">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!aniImageError ? (
-                    <div className="w-full h-full rounded-full ani-avatar">
-                      <img 
-                        src="/asset/ani.png" 
-                        alt="ANI" 
-                        className="w-full h-full rounded-full object-cover opacity-0"
-                        onError={() => setAniImageError(true)}
-                        onLoad={() => console.log('ANI image loaded successfully')}
-                      />
-                    </div>
+                    <img 
+                      src="/asset/ani.png" 
+                      alt="ANI" 
+                      className="w-full h-full rounded-full object-cover"
+                      onError={(e) => {
+                        console.log('ANI image failed to load:', e)
+                        setAniImageError(true)
+                      }}
+                      onLoad={() => console.log('ANI image loaded successfully')}
+                    />
                   ) : (
                     aniFallback
                   )}
@@ -91,15 +99,16 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
               <div className="relative">
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
                   {!valentineImageError ? (
-                    <div className="w-full h-full rounded-full valentine-avatar">
-                      <img 
-                        src="/asset/valentine.jpg" 
-                        alt="Valentine" 
-                        className="w-full h-full rounded-full object-cover opacity-0"
-                        onError={() => setValentineImageError(true)}
-                        onLoad={() => console.log('Valentine image loaded successfully')}
-                      />
-                    </div>
+                    <img 
+                      src="/asset/valentine.jpg" 
+                      alt="Valentine" 
+                      className="w-full h-full rounded-full object-cover"
+                      onError={(e) => {
+                        console.log('Valentine image failed to load:', e)
+                        setValentineImageError(true)
+                      }}
+                      onLoad={() => console.log('Valentine image loaded successfully')}
+                    />
                   ) : (
                     valentineFallback
                   )}

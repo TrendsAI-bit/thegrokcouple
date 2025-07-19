@@ -61,6 +61,7 @@ export default function Home() {
       },
     ]
     setProfiles(mockProfiles)
+    console.log('Mock profiles loaded:', mockProfiles)
   }, [])
 
   const handleCreateProfile = (profileData: Omit<Profile, 'id' | 'walletAddress' | 'createdAt'>) => {
@@ -104,10 +105,12 @@ export default function Home() {
                 alt="Grok Couple Logo" 
                 className="w-full h-full rounded-full object-cover"
                 onError={(e) => {
+                  console.log('Logo image failed to load')
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                   target.parentElement!.innerHTML = '<div class="w-full h-full rounded-full bg-gradient-to-r from-neon-pink to-neon-blue flex items-center justify-center"><span class="text-white font-bold text-lg">GC</span></div>';
                 }}
+                onLoad={() => console.log('Logo image loaded successfully')}
               />
             </div>
             <span className="text-xl font-bold gradient-text tracking-wider">GROK COUPLE</span>
@@ -128,10 +131,11 @@ export default function Home() {
         
         <HowItWorks />
         
+        {/* Always show ProfileGallery for demo purposes */}
         <ProfileGallery 
           profiles={profiles}
-          connected={connected}
-          hasAVTokens={hasAVTokens}
+          connected={true} // Force connected for demo
+          hasAVTokens={true} // Force hasAVTokens for demo
           onCreateProfile={() => setShowProfileModal(true)}
         />
         

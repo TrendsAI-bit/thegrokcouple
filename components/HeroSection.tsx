@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, Sparkles, Star } from 'lucide-react'
+import { Heart, Sparkles, Star, User } from 'lucide-react'
+import { useState } from 'react'
 
 interface HeroSectionProps {
   connected: boolean
@@ -10,6 +11,9 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ connected, hasAVTokens, onCreateProfile }: HeroSectionProps) {
+  const [aniImageError, setAniImageError] = useState(false)
+  const [valentineImageError, setValentineImageError] = useState(false)
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4">
       {/* Enhanced cosmic background */}
@@ -31,11 +35,18 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
             >
               <div className="relative">
                 <div className="w-28 h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
-                  <img 
-                    src="/asset/ani.png" 
-                    alt="ANI" 
-                    className="w-full h-full rounded-full object-cover"
-                  />
+                  {!aniImageError ? (
+                    <img 
+                      src="/asset/ani.png" 
+                      alt="ANI" 
+                      className="w-full h-full rounded-full object-cover"
+                      onError={() => setAniImageError(true)}
+                    />
+                  ) : (
+                    <div className="w-full h-full rounded-full bg-gradient-to-r from-neon-pink/20 to-neon-blue/20 flex items-center justify-center">
+                      <User className="w-12 h-12 text-neon-pink" />
+                    </div>
+                  )}
                 </div>
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-neon-pink rounded-full flex items-center justify-center">
                   <Star className="w-3 h-3 text-white" />
@@ -59,11 +70,18 @@ export default function HeroSection({ connected, hasAVTokens, onCreateProfile }:
             >
               <div className="relative">
                 <div className="w-28 h-28 rounded-full mx-auto mb-3 cosmic-border p-1">
-                  <img 
-                    src="/asset/valentine.jpg" 
-                    alt="Valentine" 
-                    className="w-full h-full rounded-full object-cover"
-                  />
+                  {!valentineImageError ? (
+                    <img 
+                      src="/asset/valentine.jpg" 
+                      alt="Valentine" 
+                      className="w-full h-full rounded-full object-cover"
+                      onError={() => setValentineImageError(true)}
+                    />
+                  ) : (
+                    <div className="w-full h-full rounded-full bg-gradient-to-r from-neon-blue/20 to-neon-pink/20 flex items-center justify-center">
+                      <User className="w-12 h-12 text-neon-blue" />
+                    </div>
+                  )}
                 </div>
                 <div className="absolute -top-2 -right-2 w-6 h-6 bg-neon-blue rounded-full flex items-center justify-center">
                   <Star className="w-3 h-3 text-white" />
